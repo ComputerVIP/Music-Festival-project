@@ -1,1 +1,61 @@
 #Vincent, Cecily, and Eli's Music Festival project
+'''
+First give the person a menu to choose from:
+    Artists
+    Schedule management
+    Venue
+    Tickets and attendees
+    Search
+
+If they choose artists:
+    Ask if they want to:
+        Add
+            Ask for artist name and genre, add to the list
+        Remove
+            Ask for artist name, remove artist, then ask if they want to add another artist
+        Edit
+            Ask for artist name, delete it, but then make a new artist info part of list
+
+If they choose schedule:
+    Ask if they want to:
+        Randomise schedule
+            Randomly assign artists to times in schedule
+        Remove artist from slot
+            Search for artist name, remove it from time slot
+        Add an artist to a slot
+            Ask for which time slot to be in, ask for artist name, add to schedule
+
+If they choose venu:
+    Option 1:
+        Ask for name, location, and equipment list
+        Save name of venu to a vriable name
+        Save equipment list to variable
+    Option 2:
+        Get name of venu, location, and equipment list
+        Put the equipment list inside the list of the venu and location
+
+If they choose ticket and attendee:
+    Ask if they want to:
+        Ticket price
+            Show ticket price
+            Ask if they want to buy a pass:
+                If yes:
+                    Ask them for their information
+                    Save to list of attendees
+        List
+            Show list of attendees
+
+If they choose search:
+    Ask if they want to:
+        Attendee search
+            Ask for attendee name
+            Show attendee name
+        Venu search
+            Ask for venu name
+            Show venu name
+        Artist search
+            Ask for artist name
+            Show artist name
+        Schedule
+            Show schedule
+'''
