@@ -1,7 +1,7 @@
 #This is he actual program, use this one
 
 #TIP!!!!!
-#If you right-click the Pseudocode file > Open to the side, it will show both this and the Pseudocode file at the same time!!!
+#If you right-click the Pseudocode file > Open to the side, it will show both this and the Pseudocode file at the same time!
 
 
 
