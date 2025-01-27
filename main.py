@@ -12,9 +12,11 @@ ven2 = ""
 ven3 = ""
 ven4 = ""
 
-def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
+#This is for the schedule, to randomise, delete, or add
+def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here*):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
+        #This will add times and sechdule timing to a venu slot
         lst = []
         lst1 = []
         cnt = 0
@@ -49,11 +51,21 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
                 return ven1, ven2, ven3, ven4, *insert variables here*
             else:
                 return ven1, ven2, ven3, ven4, *insert variables here*
+    elif ans == 2:
+        #This is to delete a time slot, need to work on making the times back into the list
+        #Fix is the list that will be saved to the venu
+        ask = int(input("What venu slot would you like to access? (1-4)\n   "))
+        if ask == 1:
+            fix = list(ven1)
+            print(fix)
 
 
 
 
 
+
+
+#
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
