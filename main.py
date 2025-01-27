@@ -12,6 +12,44 @@ ven2 = ""
 ven3 = ""
 ven4 = ""
 
+def artists(): #lists
+    #list format: name,genre
+    exit==False
+    while exit==False:
+        artists_list=[["George","Metal"],["Henry","Metal"]]
+        choice=int(input("""Press the number of what you want:
+                     1. Add an artist
+                     2. Remove an artist
+                     3. Edit artists
+                     4. See artists
+                     5. Exit"""))
+        if choice==1:#add
+            artist=input("Artist Name")
+            genre=input("Genre of the artist")
+            artists_list.append([artist,genre])
+        elif choice==2: #remove
+            artist=input("Artist Name")
+            genre=input("Genre of the artist")
+            artists_list.remove([artist,genre])
+        elif choice==3: #Edit Artists
+            artist=input("Artist Name")
+            genre=input("Genre of the artist")
+            artists_list.remove([artist,genre])
+            artist=input("Artist Name")
+            genre=input("Genre of the artist")
+            artists_list.append([artist,genre])
+        elif choice==3: #See artists
+            for x in artists_list:
+                print(f"{x}: {artists_list[x]}")
+        elif choice==4:
+            print("invalid choice")
+        elif choice==5:
+            break
+        else:
+           print("Invalid choice")
+
+artists()
+'''
 def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
@@ -49,11 +87,9 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
                 return ven1, ven2, ven3, ven4, *insert variables here*
             else:
                 return ven1, ven2, ven3, ven4, *insert variables here*
+'''
 
-
-
-
-
+'''
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
@@ -76,7 +112,7 @@ def search( *insert variables here* ):
             return *insert variables here*
     #Searches for artist by name
     elif ans == 3:
-        art = input("What is the artist's name?\n")
+        art = input("What is the artists name?\n")
         if art in *insert artist list here*:
             print(f"{art} in the list!")
             return *insert variables here*
@@ -90,3 +126,4 @@ def search( *insert variables here* ):
     #Ends the function and returns to menu
     else:
         return *insert variables here*
+'''
