@@ -14,39 +14,89 @@ ven4 = ""
 
 def artists(): #lists
     #list format: name,genre
-    exit==False
+    exit=False
+    artists_list=[["George","Metal"],["Henry","Metal"]]
     while exit==False:
-        artists_list=[["George","Metal"],["Henry","Metal"]]
-        choice=int(input("""Press the number of what you want:
+        invalid=False
+        try:
+            choice=int(input("""Press the number of what you want:
                      1. Add an artist
                      2. Remove an artist
                      3. Edit artists
                      4. See artists
-                     5. Exit"""))
-        if choice==1:#add
-            artist=input("Artist Name")
-            genre=input("Genre of the artist")
-            artists_list.append([artist,genre])
-        elif choice==2: #remove
-            artist=input("Artist Name")
-            genre=input("Genre of the artist")
-            artists_list.remove([artist,genre])
-        elif choice==3: #Edit Artists
-            artist=input("Artist Name")
-            genre=input("Genre of the artist")
-            artists_list.remove([artist,genre])
-            artist=input("Artist Name")
-            genre=input("Genre of the artist")
-            artists_list.append([artist,genre])
-        elif choice==3: #See artists
-            for x in artists_list:
-                print(f"{x}: {artists_list[x]}")
-        elif choice==4:
-            print("invalid choice")
-        elif choice==5:
-            break
-        else:
-           print("Invalid choice")
+                     5. Exit\n"""))
+            if choice==1:#add
+                artist=input("Artist Name")
+                genre=input("Genre of the artist")
+                artists_list.append([artist,genre])
+                
+            elif choice==2: #remove
+                while invalid==False:
+                    try:
+                        index=int(input("""1. Use the number of the artist in the list
+                                2. Use the name and genre"""))
+                        if index==1: #index remove
+                            try:
+                                index=int(input("What is the number of the artist?"))
+                                if index<len(artists_list):
+                                    artists_list.remove(artists_list[index-1])
+                                    break
+                                else:
+                                    print("Invalid option")
+                            except:
+                                print("invalid option")
+                        elif index==2: #name remove
+                            artist=input("Artist Name")
+                            genre=input("Genre of the artist")
+                            if [artist,genre] in artists_list:
+                                artists_list.remove([artist,genre])
+                                break
+                            else:
+                                print("invalid name or genre")
+                        else:
+                            print("invalid name or genre")
+                    except:
+                        print("invalid option")
+        
+            elif choice==3: #Edit Artists
+                while invalid==False:
+                    try:
+                        index=int(input("""1. Use the number of the artist in the list
+                                2. Use the name and genre"""))
+                        if index==1: #index remove
+                            try:
+                                index=int(input("What is the number of the artist?"))
+                                if index<len(artists_list):
+                                    artists_list.remove(artists_list[index-1])
+                                else:
+                                    print("Invalid option")
+                            except:
+                                print("invalid option")
+                        elif index==2: #name remove
+                            artist=input("Artist Name")
+                            genre=input("Genre of the artist")
+                            index=artists_list.index([artist,genre])
+                            if [artist,genre] in artists_list:
+                                artists_list.remove([artist,genre])
+                                break
+                            else:
+                                print("invalid name or genre")
+                    except:
+                        print("Invalid Choice")
+                #new artist
+                artist=input("New artist name")
+                genre=input("Genre of the New artist")
+                artists_list.insert(index,[artist,genre])
+                
+            elif choice==4: #See artists
+                for x in artists_list:
+                    print(f"{artists_list.index(x)}: {x[0]}, {x[1]}")
+            
+            elif choice==5: #Exit
+                break
+        
+        except:
+            print("Invalid choice")
 
 artists()
 '''
