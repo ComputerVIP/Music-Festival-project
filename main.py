@@ -1,5 +1,5 @@
 #This is he actual program, use this one
-
+#use sets
 #TIP!!!!!
 #If you right-click the Pseudocode file > Open to the side, it will show both this and the Pseudocode file at the same time!
 
@@ -12,6 +12,11 @@ ven2 = ""
 ven3 = ""
 ven4 = ""
 
+def venu():
+    venus={"Main venue","Venu 1"}
+
+
+'''
 def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
@@ -49,11 +54,8 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
                 return ven1, ven2, ven3, ven4, *insert variables here*
             else:
                 return ven1, ven2, ven3, ven4, *insert variables here*
-
-
-
-
-
+'''
+'''
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
@@ -90,3 +92,5 @@ def search( *insert variables here* ):
     #Ends the function and returns to menu
     else:
         return *insert variables here*
+
+'''
