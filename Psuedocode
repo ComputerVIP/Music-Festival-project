@@ -10,12 +10,13 @@ First give the person a menu to choose from:
 If they choose artists: (Cecily)
     Ask if they want to:
         Add
-            Ask for artist name and genre, add to the list
+            Ask for artist name and genre, add to the list, ask for which venu
         Remove
             Ask for artist name, remove artist, then ask if they want to add another artist
         Edit
             Ask for artist name, delete it, but then make a new artist info part of list
-
+        See
+            Print the list of artists
 If they choose schedule: (Vincent)
     Ask if they want to:
         Randomise schedule
@@ -24,6 +25,8 @@ If they choose schedule: (Vincent)
             Search for artist name, remove it from time slot
         Add an artist to a slot
             Ask for which time slot to be in, ask for artist name, add to schedule
+        See
+            Print the list of schedule
 
 If they choose venu: (Cecily)
     Option 1:
@@ -33,6 +36,8 @@ If they choose venu: (Cecily)
     Option 2:
         Get name of venu, location, and equipment list
         Put the equipment list inside the list of the venu and location
+        Or
+            Print the list of venus
 
 If they choose ticket and attendee: (Eli)
     Ask if they want to:
