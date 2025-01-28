@@ -63,6 +63,7 @@ def main():
 
 # loop that makes sure the program continues until the user is done
 while True:
+    print("Music Festival Manager")
     end = main()
     if end == "end":
         print("Thank you for using this program.")
