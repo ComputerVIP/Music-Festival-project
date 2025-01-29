@@ -20,11 +20,8 @@ If they choose artists: (Cecily)
 
 
 If they choose venu: (Cecily)
-    Option 1:
-        Ask for name, location, and equipment list
-        Save name of venu to a vriable name
-        Save equipment list to variable
     Option 2:
+    Add, remove, print list, or exit
         Get name of venu, location, and equipment list
         Put the equipment list inside the list of the venu and location
         Or

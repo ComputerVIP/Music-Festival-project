@@ -6,16 +6,59 @@
 import random
 
 #Schedule variables
+'''
 tmes = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
 ven1 = ""
 ven2 = ""
 ven3 = ""
 ven4 = ""
+'''
+def venu(amount): #amount is how many venu slots you want
+    #{venue,venue2}
+    venus={["Venu name", "location", "equip list"],["Venu name2","location2","equipment list2"]}
+    exit=False
+    print(venus)
+    print(len(venus))
+    while exit==False:
+        try:
+            choice=int(input(f"""Press the number of the option you want
+                         1. Add new venus (Note: there can only be {amount} total venus)
+                         2. Remove venue
+                         3. View venu list 
+                         4. Exit\n  """))
+            if choice==1: #add new venu
+                if len(venus)>=amount:
+                    print("All venu slots are full")
+                else:
+                    name=input("What is the venu name?\n")
+                    location=input("Where is the location?\n")
+                    equipment=[]
+                    done=False
+                    while done==False:
+                        equip=input("Type what item of equipment you need, press x to be finished\n ")
+                        if equip=="x":
+                            break
+                        else:
+                            equipment.append(equip)
+                    venus.append({name,location,equipment})
+            elif choice==2: #remove venu
+                name=input("What is the venu name?\n")
+                gone=True
+                for x in venus:
+                    if name in venus(x)(1):
+                        venus.remove((x))
+                        gone=False
+                if gone==True:
+                    print("item not in venu list")
+            elif choice==3:
+                for x in venus:
+                    print(x)
+            else: #exit
+                break
+        except:
+            print("Invalid option\n")
 
-def venu():
-    venus={"Main venue","Venu 1"}
-
-
+venu(4)
 '''
 def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
