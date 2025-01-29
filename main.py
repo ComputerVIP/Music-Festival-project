@@ -39,18 +39,15 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here*):
             ans = int(input("Which venu SLOT do you want to save this schedule to? (5 for none)\n    "))
             if ans == 1:
                 ven1 = tuple(lst1)
-                return ven1, ven2, ven3, ven4, *insert variables here*
             elif ans == 2:
                 ven2 = tuple(lst1)
-                return ven1, ven2, ven3, ven4, *insert variables here*
             elif ans == 3:
                 ven3 = tuple(lst1)
-                return ven1, ven2, ven3, ven4, *insert variables here*
             elif ans == 4:
                 ven4 = tuple(lst1)
-                return ven1, ven2, ven3, ven4, *insert variables here*
             else:
-                return ven1, ven2, ven3, ven4, *insert variables here*
+                print("Not saved to a slot")
+            return ven1, ven2, ven3, ven4, *insert variables here*
     elif ans == 2:
         #This is to delete a time slot, need to work on making the times back into the list
         #Fix is the list that will be saved to the venu
@@ -58,6 +55,82 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here*):
         if ask == 1:
             fix = list(ven1)
             print(fix)
+            ans = input("What item would you like to remove? (Don't do times, only the artist)\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven1 = tuple(fix)
+        elif ask == 2:
+            fix = list(ven2)
+            print(fix)
+            ans = input("What item would you like to remove? (Don't do times, only the artist)\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven2 = tuple(fix)
+        elif ask == 3:
+            fix = list(ven3)
+            print(fix)
+            ans = input("What item would you like to remove? (Don't do times, only the artist)\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven3 = tuple(fix)
+        elif ask == 4:
+            fix = list(ven4)
+            print(fix)
+            ans = input("What item would you like to remove? (Don't do times, only the artist)\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven4 = tuple(fix)
+        else:
+            print("Not an available slot")
+        return ven1, ven2, ven3, ven4, *insert variables here*
+    #This is the adding function, need to fix the slot they need to add to
+    elif ans == 3:
+        ask = int(input("What venu slot would you like to access? (1-4)\n   "))
+        if ask == 1:
+            fix = list(ven1)
+            print(fix)
+            ans = input("What would you like to add?\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven1 = tuple(fix)
+        elif ask == 2:
+            fix = list(ven2)
+            print(fix)
+            ans = input("What would you like to add?\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven2 = tuple(fix)
+        elif ask == 3:
+            fix = list(ven3)
+            print(fix)
+            ans = input("What would you like to add?\n  ")
+            if ans in fix:
+                fix = fix.remove(ans)
+            else:
+                print("Error removing")
+            ven3 = tuple(fix)
+        elif ask == 4:
+            fix = list(ven4)
+            print(fix)
+            ans = input("What would you like to add?\n  ")
+            fix = fix.append(ans)
+            ven4 = tuple(fix)
+        else:
+            print("Not an available slot")
+        return ven1, ven2, ven3, ven4, *insert variables here*
+
 
 
 
