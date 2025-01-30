@@ -12,6 +12,32 @@ ven2 = ""
 ven3 = ""
 ven4 = ""
 
+def ticket_attendee():
+    price_one = 100
+    price_three = 250
+    price_vip = 450
+    attendees = []
+    while True:
+        choice = input("""1. see ticket prices
+                       2. adjust ticket prices
+                       3. add attendee information
+                       4. attendee information
+                       5. End
+                       Enter the number of the thing you would like to do: """)
+        if choice == "1":
+            print("the price for a 1-day pass is $", price_one, ", the price for a 3-day pass is $", price_three, ", the price for a VIP pass is $", price_vip)
+        elif choice == "2":
+            pass
+        elif choice == "3":
+            pass
+        elif choice == "4":
+            pass
+        elif choice == "5":
+            break
+        else:
+            print("That is not an option.")
+
+
 def artists(): #lists
     #list format: name,genre
     exit=False
@@ -98,8 +124,7 @@ def artists(): #lists
         except:
             print("Invalid choice")
 
-artists()
-'''
+
 def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
@@ -137,9 +162,8 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
                 return ven1, ven2, ven3, ven4, *insert variables here*
             else:
                 return ven1, ven2, ven3, ven4, *insert variables here*
-'''
 
-'''
+
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
@@ -176,4 +200,34 @@ def search( *insert variables here* ):
     #Ends the function and returns to menu
     else:
         return *insert variables here*
-'''
+
+def main():
+    choice = input("""1. Artist Management
+    2. Schedule Management
+    3. Venue Management
+    4. Ticket Sales and Attendee Management
+    5. Search
+    6. End
+    Enter the number of the thing you would like to do: """)
+    if choice == "1":
+        artists()
+    elif choice == "2":
+        schedule()
+    elif choice == "3":
+        venue()
+    elif choice == "4":
+        ticket_attende()
+    elif choice == "5":
+        search()
+    elif choice == "6":
+        return "end"
+    else:
+        print("That is not an option.")
+
+# loop that makes sure the program continues until the user is done
+while True:
+    print("Music Festival Manager")
+    end = main()
+    if end == "end":
+        print("Thank you for using this program.")
+        break
