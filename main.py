@@ -19,28 +19,15 @@ def ticket_attendee():
     attendees = []
     while True:
         choice = input("""1. see ticket prices
-                       3. adjust ticket prices
+                       2. adjust ticket prices
+                       3. add attendee information
                        4. attendee information
                        5. End
                        Enter the number of the thing you would like to do: """)
         if choice == "1":
             print("the price for a 1-day pass is $", price_one, ", the price for a 3-day pass is $", price_three, ", the price for a VIP pass is $", price_vip)
         elif choice == "2":
-            amount = int(input("How many tickets do you want to buy: "))
-            type = input("""1. 1-day pass
-                         2. 3-day pass
-                         3. VIP pass
-                         Enter the number of the type of pass you would like to buy: """)
-            if type == "1":
-                cost = amount * price_one
-            elif type == "2":
-                cost = amount * price_three
-            elif type == "3":
-                cost = amount * price_vip
-            else:
-                print("That is not an option.")
-                continue
-            print("the cost will be", cost)
+            pass
         elif choice == "3":
             pass
         elif choice == "4":
