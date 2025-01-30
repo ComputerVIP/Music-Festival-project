@@ -7,7 +7,8 @@ First give the person a menu to choose from:
     Tickets and attendees
     Search
 
-If they choose artists: (Cecily)
+### This one first ###
+If they choose artists: (Cecily) (lists)
     Ask if they want to:
         Add
             Ask for artist name and genre, add to the list, ask for which venu
@@ -18,6 +19,14 @@ If they choose artists: (Cecily)
         See
             Print the list of artists
 
+### This one second ###
+If they choose venu: (Cecily) (sets)
+    Option 1:
+        Ask for name, location, and equipment list
+        Save name of venu to a vriable name
+        Save equipment list to variable
+    Option 2:
+=======
 
 If they choose venu: (Cecily)
     Option 2:
@@ -36,6 +45,8 @@ If they choose schedule: (Vincent)
         Add an artist to a slot
             Ask for which time slot to be in, ask for artist name, add to schedule
         See
+            Print the list of schedule
+=======
             Print the list of schedule            
 
 If they choose ticket and attendee: (Eli)

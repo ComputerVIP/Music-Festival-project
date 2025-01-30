@@ -37,6 +37,94 @@ def ticket_attendee():
         else:
             print("That is not an option.")
 
+
+def artists(): #lists
+    #list format: name,genre
+    exit=False
+    artists_list=[["George","Metal"],["Henry","Metal"]]
+    while exit==False:
+        invalid=False
+        try:
+            choice=int(input("""Press the number of what you want:
+                     1. Add an artist
+                     2. Remove an artist
+                     3. Edit artists
+                     4. See artists
+                     5. Exit\n"""))
+            if choice==1:#add
+                artist=input("Artist Name")
+                genre=input("Genre of the artist")
+                artists_list.append([artist,genre])
+                
+            elif choice==2: #remove
+                while invalid==False:
+                    try:
+                        index=int(input("""1. Use the number of the artist in the list
+                                2. Use the name and genre"""))
+                        if index==1: #index remove
+                            try:
+                                index=int(input("What is the number of the artist?"))
+                                if index<len(artists_list):
+                                    artists_list.remove(artists_list[index-1])
+                                    break
+                                else:
+                                    print("Invalid option")
+                            except:
+                                print("invalid option")
+                        elif index==2: #name remove
+                            artist=input("Artist Name")
+                            genre=input("Genre of the artist")
+                            if [artist,genre] in artists_list:
+                                artists_list.remove([artist,genre])
+                                break
+                            else:
+                                print("invalid name or genre")
+                        else:
+                            print("invalid name or genre")
+                    except:
+                        print("invalid option")
+        
+            elif choice==3: #Edit Artists
+                while invalid==False:
+                    try:
+                        index=int(input("""1. Use the number of the artist in the list
+                                2. Use the name and genre"""))
+                        if index==1: #index remove
+                            try:
+                                index=int(input("What is the number of the artist?"))
+                                if index<len(artists_list):
+                                    artists_list.remove(artists_list[index-1])
+                                else:
+                                    print("Invalid option")
+                            except:
+                                print("invalid option")
+                        elif index==2: #name remove
+                            artist=input("Artist Name")
+                            genre=input("Genre of the artist")
+                            index=artists_list.index([artist,genre])
+                            if [artist,genre] in artists_list:
+                                artists_list.remove([artist,genre])
+                                break
+                            else:
+                                print("invalid name or genre")
+                    except:
+                        print("Invalid Choice")
+                #new artist
+                artist=input("New artist name")
+                genre=input("Genre of the New artist")
+                artists_list.insert(index,[artist,genre])
+                
+            elif choice==4: #See artists
+                for x in artists_list:
+                    print(f"{artists_list.index(x)}: {x[0]}, {x[1]}")
+            
+            elif choice==5: #Exit
+                break
+        
+        except:
+            print("Invalid choice")
+
+
 def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
@@ -76,9 +164,6 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
                 return ven1, ven2, ven3, ven4, *insert variables here*
 
 
-
-
-
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
@@ -101,7 +186,7 @@ def search( *insert variables here* ):
             return *insert variables here*
     #Searches for artist by name
     elif ans == 3:
-        art = input("What is the artist's name?\n")
+        art = input("What is the artists name?\n")
         if art in *insert artist list here*:
             print(f"{art} in the list!")
             return *insert variables here*
@@ -115,3 +200,34 @@ def search( *insert variables here* ):
     #Ends the function and returns to menu
     else:
         return *insert variables here*
+
+def main():
+    choice = input("""1. Artist Management
+    2. Schedule Management
+    3. Venue Management
+    4. Ticket Sales and Attendee Management
+    5. Search
+    6. End
+    Enter the number of the thing you would like to do: """)
+    if choice == "1":
+        artists()
+    elif choice == "2":
+        schedule()
+    elif choice == "3":
+        venue()
+    elif choice == "4":
+        ticket_attende()
+    elif choice == "5":
+        search()
+    elif choice == "6":
+        return "end"
+    else:
+        print("That is not an option.")
+
+# loop that makes sure the program continues until the user is done
+while True:
+    print("Music Festival Manager")
+    end = main()
+    if end == "end":
+        print("Thank you for using this program.")
+        break
