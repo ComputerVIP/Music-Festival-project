@@ -14,7 +14,7 @@ def main():
     elif choice == "3":
         venue()
     elif choice == "4":
-        ticket_&_attende()
+        ticket_attende()
     elif choice == "5":
         search()
     elif choice == "6":
