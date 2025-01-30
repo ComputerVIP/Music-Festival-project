@@ -26,6 +26,11 @@ If they choose venu: (Cecily) (sets)
         Save name of venu to a vriable name
         Save equipment list to variable
     Option 2:
+=======
+
+If they choose venu: (Cecily)
+    Option 2:
+    Add, remove, print list, or exit
         Get name of venu, location, and equipment list
         Put the equipment list inside the list of the venu and location
         Or
@@ -41,6 +46,8 @@ If they choose schedule: (Vincent)
             Ask for which time slot to be in, ask for artist name, add to schedule
         See
             Print the list of schedule
+=======
+            Print the list of schedule            
 
 If they choose ticket and attendee: (Eli)
     Ask if they want to:
