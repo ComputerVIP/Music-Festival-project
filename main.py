@@ -1,19 +1,19 @@
 #This is he actual program, use this one
-
+#use sets
 #TIP!!!!!
 #If you right-click the Pseudocode file > Open to the side, it will show both this and the Pseudocode file at the same time!
 
 import random
 
 #Schedule variables
+'''
 tmes = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
 ven1 = ""
 ven2 = ""
 ven3 = ""
 ven4 = ""
 
-#This is for the schedule, to randomise, delete, or add
-def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here*):
+def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here* ):
     ans = int(input("What would you like to do?\n1 Randomise scehdule\n2 Remove artist from schedule\n3 Add artist to empty slot\n4 For end\n    "))
     if ans == 1:
         #This will add times and sechdule timing to a venu slot
@@ -119,26 +119,12 @@ def schedule(tmes, ven1, ven2, ven3, ven4, *insert variables here*):
             if ans in fix:
                 fix = fix.remove(ans)
             else:
-                print("Error removing")
-            ven3 = tuple(fix)
-        elif ask == 4:
-            fix = list(ven4)
-            print(fix)
-            ans = input("What would you like to add?\n  ")
-            fix = fix.append(ans)
-            ven4 = tuple(fix)
-        else:
-            print("Not an available slot")
-        return ven1, ven2, ven3, ven4, *insert variables here*
+                return ven1, ven2, ven3, ven4, *insert variables here*
 
 
 
 
 
-
-
-
-#
 def search( *insert variables here* ):
     ans = int(input("What would you like to do?\n 1 for attendees\n 2 for venu\n 3 for artists\n 4 for schedule\n 5 for end\n   "))
     #Searches for attendee by name
@@ -175,3 +161,5 @@ def search( *insert variables here* ):
     #Ends the function and returns to menu
     else:
         return *insert variables here*
+
+'''

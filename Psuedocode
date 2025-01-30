@@ -17,6 +17,16 @@ If they choose artists: (Cecily)
             Ask for artist name, delete it, but then make a new artist info part of list
         See
             Print the list of artists
+
+
+If they choose venu: (Cecily)
+    Option 2:
+    Add, remove, print list, or exit
+        Get name of venu, location, and equipment list
+        Put the equipment list inside the list of the venu and location
+        Or
+            Print the list of venus
+
 If they choose schedule: (Vincent)
     Ask if they want to:
         Randomise schedule
@@ -26,18 +36,7 @@ If they choose schedule: (Vincent)
         Add an artist to a slot
             Ask for which time slot to be in, ask for artist name, add to schedule
         See
-            Print the list of schedule
-
-If they choose venu: (Cecily)
-    Option 1:
-        Ask for name, location, and equipment list
-        Save name of venu to a vriable name
-        Save equipment list to variable
-    Option 2:
-        Get name of venu, location, and equipment list
-        Put the equipment list inside the list of the venu and location
-        Or
-            Print the list of venus
+            Print the list of schedule            
 
 If they choose ticket and attendee: (Eli)
     Ask if they want to:
