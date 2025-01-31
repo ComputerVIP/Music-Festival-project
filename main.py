@@ -71,6 +71,7 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
         elif choice==3:
             for x in venus:
                 print(x)
+                return amount, venus, rept
         else: #exit
             rept = 1
             return amount, venus, rept
@@ -81,14 +82,28 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
 
 #Schedule variables
 
-def ticket_attendee(attendees, rept, price_one, price_vip, price_three):
+def ticket_attendee_guest(attendees, rept, price_one, price_vip, price_three):
     while True:
         choice = input("""What would you like to do?
         1. See ticket prices
-        2. Adjust ticket prices
-        3. Add attendee information
-        4. Attendee information list
-        5. End\n    """)
+        2. Buy ticket
+""")
+        if choice == "1":
+            print("The price for a 1-day pass is $", price_one, ", the price for a 3-day pass is $", price_three, ", the price for a VIP pass is $", price_vip)
+            return attendees, rept, price_one, price_vip, price_three
+        elif choice == "2":
+            ans = input("What is your name?\n")
+            ask = input("What pass do you want? One, Three, or VIP?")
+            if ask == "One":
+                ask = "One-day-pass"
+                pass
+            elif ask == "Three":
+                ask = "Three-day-pass"
+                pass
+            elif ask == "VIP":
+                ask = "VIP-pass"
+            attendees.append([ans, ask])
+            return attendees, rept, price_one, price_vip, price_three
 
 
 def ticket_attendee(attendees, rept, price_one, price_vip, price_three):
@@ -458,27 +473,38 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
 
 def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes):
     while rept > 0:
-        choice = input("""        1. Artist Management
+        ans = input("What is the password for admin? (ADMIN is default\n")
+        if ans == "ADMIN":
+            choice = input("""        1. Artist Management
         2. Schedule Management
         3. Venue Management
         4. Ticket Sales and Attendee Management
         5. Search
         6. End
-        Enter the number of the thing you would like to do:
+Enter the number of the thing you would like to do:
 """)
-        if choice == "1":
-            rept, artist_list = artists(rept, artist_list)
-        elif choice == "2":
-            tmes, ven1, ven2, ven3, ven4, rept, artist_list = schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list)
-        elif choice == "3":
-            rept, venus = venu((int(input("How many venus would you like to make?\n    "))), venus, rept)
-        elif choice == "4":
-            attendees, rept, price_one, price_vip, price_three = ticket_attendee(attendees, rept, price_one, price_vip, price_three)
-        elif choice == "5":
-            rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus = search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus)
+            if choice == "1":
+                rept, artist_list = artists(rept, artist_list)
+            elif choice == "2":
+                tmes, ven1, ven2, ven3, ven4, rept, artist_list = schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list)
+            elif choice == "3":
+                rept, venus = venu((int(input("How many venus would you like to make?\n    "))), venus, rept)
+            elif choice == "4":
+                attendees, rept, price_one, price_vip, price_three = ticket_attendee(attendees, rept, price_one, price_vip, price_three)
+            elif choice == "5":
+                rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus = search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus)
+            else:
+                rept = 0
         else:
-            rept = 0
-    return rept
+            choice = input("""        1. Search
+        2. Ticket sales
+Enter the number of the thing you would like to do:
+""")
+            if choice == "1":
+                rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus = search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus)
+            elif choice == "2":
+                attendees, rept, price_one, price_vip, price_three = ticket_attendee_guest(attendees, rept, price_one, price_vip, price_three)
+    return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip
 
 # loop that makes sure the program continues until the user is done
 while rept > 0:
