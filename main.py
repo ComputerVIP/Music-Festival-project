@@ -35,7 +35,7 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
             if len(venus)>=amount:
                 print("All venu slots are full")
                 rept = 1
-                return rept, venus
+                return amount, venus, rept
             else:
                 name=input("What is the venu name?\n    ")
                 location=input("Where is the location?\n   ")
@@ -45,13 +45,13 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
                     equip=input("Type what item of equipment you need, press x to be finished\n    ")
                     if equip=="x":
                         rept = 1
-                        return rept, venus
+                        return amount, venus, rept
                     else:
                         equipment.append(equip)
                         pass
                 venus.append({name,location,equipment})
                 rept = 1
-                return rept, venus
+                return amount, venus, rept
         elif choice==2: #remove venu
             name=input("What is the venu name?\n    ")
             gone=True
@@ -60,26 +60,36 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
                     venus.remove((x))
                     gone=False
                     rept = 1
-                    return rept, venus
+                    return amount, venus, rept
                 else:
                     rept = 1
-                    return rept, venus
+                    return amount, venus, rept
             if gone==True:
                 print("Item not in venu list")
                 rept = 1
-                return rept, venus
+                return amount, venus, rept
         elif choice==3:
             for x in venus:
                 print(x)
         else: #exit
             rept = 1
-            return rept, venus
+            return amount, venus, rept
     except:
         print("Invalid option")
         rept = 1
-        return rept, venus
+        return amount, venus, rept
 
 #Schedule variables
+
+def ticket_attendee(attendees, rept, price_one, price_vip, price_three):
+    while True:
+        choice = input("""What would you like to do?
+        1. See ticket prices
+        2. Adjust ticket prices
+        3. Add attendee information
+        4. Attendee information list
+        5. End\n    """)
+
 
 def ticket_attendee(attendees, rept, price_one, price_vip, price_three):
     while True:
@@ -253,7 +263,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             else:
                 pass
         if count > countlst:
-            return ven1, ven2, ven3, ven4, rept, ("The amount of artists is too much for the amount of time slots")
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list, ("The amount of artists is too much for the amount of time slots")
         else:
             lst3 = lst[:]
             random.shuffle(lst3)
@@ -273,7 +283,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
                 ven4 = tuple(lst1)
             else:
                 print("Not saved to a slot")
-            return ven1, ven2, ven3, ven4, rept
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list
     elif ans == 2:
         #This is to delete a time slot, need to work on making the times back into the list
         #Fix is the list that will be saved to the venu
@@ -328,7 +338,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             pass
         else:
             print("Not an available slot")
-        return ven1, ven2, ven3, ven4, rept
+        return tmes, ven1, ven2, ven3, ven4, rept, artist_list
     #This is the adding function, need to fix the slot they need to add to
     elif ans == 3:
         ask = int(input("What venu slot would you like to access? (1-4)\n   "))
@@ -342,7 +352,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
                     fix = fix[x].append(ans)
                     pass
             ven1 = tuple(fix)
-            return ven1, ven2, ven3, ven4, rept
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list
         elif ask == 2:
             fix = list(ven2)
             print(fix)
@@ -353,7 +363,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
                     fix = fix[x].append(ans)
                     pass
             ven2 = tuple(fix)
-            return ven1, ven2, ven3, ven4, rept
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list
         elif ask == 3:
             fix = list(ven3)
             print(fix)
@@ -364,7 +374,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
                     fix = fix[x].append(ans)
                     pass
             ven3 = tuple(fix)
-            return ven1, ven2, ven3, ven4, rept
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list
         elif ask == 4:
             fix = list(ven4)
             print(fix)
@@ -375,9 +385,9 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
                     fix = fix[x].append(ans)
                     pass
             ven4 = tuple(fix)
-            return ven1, ven2, ven3, ven4, rept
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list
         else:
-            return ven1, ven2, ven3, ven4, rept, ("Invalid input!")
+            return tmes, ven1, ven2, ven3, ven4, rept, artist_list, ("Invalid input!")
 
 
 def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
@@ -444,7 +454,7 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
     #Ends the function and returns to menu
     else:
         rept = 1
-        return rept
+        return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus
 
 
 
