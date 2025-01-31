@@ -116,10 +116,12 @@ def ticket_attendee(attendees, rept, price_one, price_vip, price_three):
         elif choice == "3":
             nme = input("Attendee name?\n    ")
             typ = input("What type of pass?\n    ")
-            schedule = schedule.append([nme, typ])
+            attendee = (nme, typ)
+            attendees.append(attendee)
             return attendees, rept, price_one, price_vip, price_three
         elif choice == "4":
-            print(attendees)
+            for p in range(len(attendees)):
+                print(attendees[p])
             return attendees, rept, price_one, price_vip, price_three
         else:
             return attendees, rept, price_one, price_vip, price_three
