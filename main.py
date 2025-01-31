@@ -10,13 +10,13 @@ rept = 1
 import random
 #Schedule variables
 tmes = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
-ven1 = ""
-ven2 = ""
-ven3 = ""
-ven4 = ""
-artist_list=[]
-attendees = []
-venus={}
+ven1 = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
+ven2 = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
+ven3 = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
+ven4 = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]
+artist_list=[["john", "pop", "HG"]]
+attendees = [["john", "VIP"]]
+venus={"HG, Grand Hall"}
 price_one = 100
 price_three = 250
 price_vip = 450
@@ -362,8 +362,8 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             ask = input("What time would you like to add this to?\n    ")
             ans = input("What would you like to add?\n    ")
             for x in fix:
-                if ask in fix[x]:
-                    fix = fix[x].append(ans)
+                if ask in x:
+                    #ERROR HERE, NEED TO ADD ANS TO X IN FIX
                     pass
             ven1 = tuple(fix)
             return tmes, ven1, ven2, ven3, ven4, rept, artist_list
@@ -374,7 +374,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             ans = input("What would you like to add?\n    ")
             for x in fix:
                 if ask in fix[x]:
-                    fix = fix[x].append(ans)
+                    #ERROR HERE, NEED TO ADD ANS TO X IN FIX
                     pass
             ven2 = tuple(fix)
             return tmes, ven1, ven2, ven3, ven4, rept, artist_list
@@ -385,7 +385,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             ans = input("What would you like to add?\n    ")
             for x in fix:
                 if ask in fix[x]:
-                    fix = fix[x].append(ans)
+                    #ERROR HERE, NEED TO ADD ANS TO X IN FIX
                     pass
             ven3 = tuple(fix)
             return tmes, ven1, ven2, ven3, ven4, rept, artist_list
@@ -396,7 +396,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             ans = input("What would you like to add?\n    ")
             for x in fix:
                 if ask in fix[x]:
-                    fix = fix[x].append(ans)
+                    #ERROR HERE, NEED TO ADD ANS TO X IN FIX
                     pass
             ven4 = tuple(fix)
             return tmes, ven1, ven2, ven3, ven4, rept, artist_list
@@ -405,15 +405,15 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
 
 
 def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
-    ans = int(input('''What would you like to do?
+    ans = input('''What would you like to do?
         1 for attendees
         2 for venu
         3 for artists
         4 for schedule
         5 for end
-'''))
+''')
     #Searches for attendee by name
-    if ans == 1:
+    if ans == "1":
         atnd = input("What is the attendee name?\n")
         if atnd in attendees:
             print(f"{atnd} is in the list!")
@@ -424,7 +424,7 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
             rept = 1
             return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus
     #Searches for venu by name of venu
-    elif ans == 2:
+    elif ans == "2":
         ven = input("What is the name of the venu?\n")
         if ven in venus:
             print(f"{ven} in the list!")
@@ -435,7 +435,7 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
             rept = 1
             return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus
     #Searches for artist by name
-    elif ans == 3:
+    elif ans == "3":
         art = input("What is the artist's name?\n")
         if art in artist_list:
             print(f"{art} in the list!")
@@ -446,18 +446,18 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
             rept = 1
             return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus
     #Prints the schedule
-    elif ans == 4:
-        ans = int(input("What slot of venu schedule would you like to access? (1-4)\n    "))
-        if ans == 1:
+    elif ans == "4":
+        ans = input("What slot of venu schedule would you like to access? (1-4)\n    ")
+        if ans == "1":
             print(ven1)
             pass
-        elif ans == 2:
+        elif ans == "2":
             print(ven2)
             pass
-        elif ans == 3:
+        elif ans == "3":
             print(ven3)
             pass
-        elif ans == 4:
+        elif ans == "4":
             print(ven4)
             pass
         else:
