@@ -14,9 +14,9 @@ ven1 = ""
 ven2 = ""
 ven3 = ""
 ven4 = ""
-artist_list=[]
-attendees = []
-venus={}
+artist_list=[["John America","Country"]]
+attendees = ["John, Doe"]
+venus={"The Stadium, Vineyard"}
 price_one = 100
 price_three = 250
 price_vip = 450
@@ -37,19 +37,10 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
                 rept = 1
                 return amount, venus, rept
             else:
-                name=input("What is the venu name?\n    ")
+                nameinput=input("What is the venu name?\n    ")
                 location=input("Where is the location?\n   ")
-                equipment=[]
-                done=False
-                while done==False:
-                    equip=input("Type what item of equipment you need, press x to be finished\n    ")
-                    if equip=="x":
-                        rept = 1
-                        return amount, venus, rept
-                    else:
-                        equipment.append(equip)
-                        pass
-                venus.append({name,location,equipment})
+                name=nameinput+", "+location
+                venus.add(name)
                 rept = 1
                 return amount, venus, rept
         elif choice==2: #remove venu
@@ -71,6 +62,7 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
         elif choice==3:
             for x in venus:
                 print(x)
+            return amount, venus, rept
         else: #exit
             rept = 1
             return amount, venus, rept
@@ -457,6 +449,7 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
 
 
 def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes):
+    
     while rept > 0:
         choice = input("""        1. Artist Management
         2. Schedule Management
@@ -471,17 +464,18 @@ def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one,
         elif choice == "2":
             tmes, ven1, ven2, ven3, ven4, rept, artist_list = schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list)
         elif choice == "3":
-            rept, venus = venu((int(input("How many venus would you like to make?\n    "))), venus, rept)
+            venus, rept = venu((int(input("How many venus would you like to make?\n    "))), venus, rept)
         elif choice == "4":
             attendees, rept, price_one, price_vip, price_three = ticket_attendee(attendees, rept, price_one, price_vip, price_three)
         elif choice == "5":
             rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus = search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus)
         else:
             rept = 0
-    return rept
+    return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip
 
 # loop that makes sure the program continues until the user is done
+
 while rept > 0:
     print("Music Festival Manager")
-    rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip = main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes)
+    rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes = main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes)
 print("Thank you for using this program.")
