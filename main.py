@@ -457,7 +457,6 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
         return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus
 
 
-
 def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes):
     while rept > 0:
         choice = input("""        1. Artist Management
@@ -480,7 +479,7 @@ def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one,
             rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus = search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus)
         else:
             rept = 0
-    return rept
+    return rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip
 
 # loop that makes sure the program continues until the user is done
 while rept > 0:
