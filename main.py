@@ -257,11 +257,11 @@ def artists(rept, artist_list): #lists
 #The randomised still broken
 def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
     ans = int(input('''What would you like to do?
-        1 Randomise scehdule
-        2 Remove artist from schedule
-        3 Add artist to empty slot
-        4 For end
+        1 Remove artist from schedule
+        2 Add artist to empty slot
+        3 For end
 '''))
+    '''
     if ans == 1:
         #This will add times and sechdule timing to a venu slot
         lst = []
@@ -297,7 +297,8 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             else:
                 print("Not saved to a slot")
             return tmes, ven1, ven2, ven3, ven4, rept, artist_list
-    elif ans == 2:
+    '''
+    if ans == 1:
         #This is to delete a time slot, need to work on making the times back into the list
         #Fix is the list that will be saved to the venu
         ask = int(input("What venu slot would you like to access? (1-4)\n   "))
@@ -353,7 +354,7 @@ def schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list):
             print("Not an available slot")
         return tmes, ven1, ven2, ven3, ven4, rept, artist_list
     #This is the adding function, need to fix the slot they need to add to
-    elif ans == 3:
+    elif ans == 2:
         ask = int(input("What venu slot would you like to access? (1-4)\n   "))
         if ask == 1:
             fix = list(ven1)
