@@ -435,7 +435,7 @@ def search(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus):
 
 
 def main(rept, artist_list, ven1, ven2, ven3, ven4, attendees, venus, price_one, price_three, price_vip, tmes):
-    while rept > 0:
+    while rept != 0:
         ans = input("\n\nWhat is the password for admin? (ADMIN is default)\n    ")
         if ans == "ADMIN":
             choice = input("""        1. Artist Management
