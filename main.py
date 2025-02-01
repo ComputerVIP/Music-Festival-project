@@ -22,26 +22,23 @@ price_three = 250
 price_vip = 450
 
 
-def venu(amount, venus, rept): #amount is how many venu slots you want
+def venu(venus, rept): #venu management
     #{venue,venue2}
     try:
         choice=input(f"""Press the number of the option you want
-        1. Add new venus (Note: there can only be {amount} total venus)
+        1. Add new venus
         2. Remove venue
         3. View venu list 
         4. Exit
 """)
         if choice=="1": #add new venu
-            if len(venus)>=amount:
-                print("All venu slots are full")
-                rept = 1
-                return amount, venus, rept
-            else:
+
+
                 name=input("What is the venu name?\n    ")
                 location=input("Where is the location?\n    ")
                 venus.append({name,location})
                 rept = 1
-                return amount, venus, rept
+                return venus, rept
 
         elif choice=="2": #remove venu
             name=input("What is the venu name?\n    ")
@@ -51,27 +48,27 @@ def venu(amount, venus, rept): #amount is how many venu slots you want
                     venus.remove(x)
                     gone=False
                     rept = 1
-                    return amount, venus, rept
+                    return venus, rept
                 else:
                     rept = 1
-                    return amount, venus, rept
+                    return venus, rept
             if gone==True:
                 print("Item not in venu list")
                 rept = 1
-                return amount, venus, rept
+                return  venus, rept
 
         elif choice=="3":
             for x in venus:
                 print(x)
-                return amount, venus, rept
+                return  venus, rept
 
         else: #exit
             rept = 1
-            return amount, venus, rept
+            return venus, rept
     except:
         print("Invalid option")
         rept = 1
-        return amount, venus, rept
+        return venus, rept
 
 #Schedule variables
 
