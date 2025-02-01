@@ -451,7 +451,7 @@ Enter the number of the thing you would like to do:
             elif choice == "2":
                 tmes, ven1, ven2, ven3, ven4, rept, artist_list = schedule(tmes, ven1, ven2, ven3, ven4, rept, artist_list)
             elif choice == "3":
-                rept, venus = venu((int(input("How many venus would you like to make?\n    "))), venus, rept)
+                rept, venus = venu(venus, rept)
             elif choice == "4":
                 attendees, rept, price_one, price_vip, price_three = ticket_attendee(attendees, rept, price_one, price_vip, price_three)
             elif choice == "5":
